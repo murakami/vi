@@ -28,6 +28,15 @@
   保存/復元の2経路、`malloc.c`(静的プール)と`mapmalloc.c`(mmapベース)がlibc mallocを
   置き換える理由とアルゴリズム概要。
 
+## Swift版再実装の検討
+
+- [swift-vi-research-notes.md](swift-vi-research-notes.md) — 上記の調査内容を踏まえ、
+  Swiftによる再実装を検討した際の技術方針まとめ(対象プラットフォーム、文字コード方針、
+  正規表現、ローカライズ、パッケージ構成案など)。
+- [swift-vi-implementation-plan.md](swift-vi-implementation-plan.md) — 実装の進捗管理用
+  チェックリスト。フェーズ0(準備)からフェーズ6(検証・仕上げ)まで、`- [ ]`のチェック
+  ボックスで進捗を記録する。
+
 ## 調査時の注意点・既知の落とし穴
 
 各文書内に記載されている、コードを読んで気づいた注意点の抜粋:
