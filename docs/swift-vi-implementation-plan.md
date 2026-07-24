@@ -48,7 +48,10 @@
 
 ## フェーズ3: ExCore(コアロジック、OS依存ゼロ)
 
-- [ ] テキストバッファの内部データ構造を選定する(gap buffer / piece table等を比較検討し決定)
+- [ ] テキストバッファの内部データ構造を設計する(方向性は決定済み: piece table方式。原典
+  `ex_temp.c`の「行ポインタ配列+追記専用一時ファイル」構造を参考に、原本ファイルのmmap範囲/
+  追記用編集ログ/行インデックスの3者をSwiftの型として具体化する。詳細は
+  `swift-vi-research-notes.md`§4.5参照)
 - [ ] 行アドレス指定構文(`ex_addr.c`相当: `.`, `$`, `%`, 行範囲, `/pat/`, `'m`等)をSwiftの型で設計する
 - [ ] アドレス解析ロジックを実装する
 - [ ] `:`コマンドディスパッチの仕組みを実装する(`ex_cmds.c`系のswitchディスパッチ相当)
@@ -72,11 +75,16 @@
 - [ ] Linux上でncurses経由の最小viループ(起動・カーソル移動・簡単な編集・終了)を動作確認する
 - [ ] macOS上で同等の最小viループを動作確認する
 
-## フェーズ6: ローカライズ
+## フェーズ6: メッセージ文字列(当面は英語のみ、ローカライズ基盤は見送り)
 
-- [ ] `Sources/vi/Resources/en.lproj/Localizable.strings` を作成する
-- [ ] `Sources/vi/Resources/ja.lproj/Localizable.strings` を作成する
-- [ ] `Bundle.module`経由でのメッセージ参照が実行ファイルターゲットで機能することを確認する
+方針(決定済み): 原典もデフォルトビルドでは英語メッセージのみ(`catd/`は`en_US`のみ、`LANGMSG`は
+無効がデフォルト)なので、Swift版も当面は英語のみとする。SPMの`.lproj`/`Bundle.module`方式は
+実行ファイルと別にリソースバンドルを生成し単一バイナリ配布を崩すため、多言語対応の実需が
+出るまでは導入しない。詳細は`swift-vi-research-notes.md`§2「ローカライズ」参照。
+
+- [ ] メッセージ文字列を集約する場所を`ExCore`/`vi`内に決める(定数 or enum。ハードコード英語)
+- [ ] (将来・保留)複数言語対応が必要になった場合: `Package.swift`に`defaultLocalization`を追加し
+  `Sources/vi/Resources/<lang>.lproj/Localizable.strings`+`Bundle.module`方式へ切り替える
 
 ## フェーズ7: 検証・仕上げ(FreeBSDは設計考慮のみ、実機検証は対象外)
 
