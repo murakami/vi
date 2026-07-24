@@ -1,7 +1,7 @@
 # ex コマンド仕様一覧(ex.1より抽出)
 
 出典: `ex.1`(troffマニュアル、"Ex Reference Manual — Version 3.7"に基づく)、`TODO`、`Changes`。
-Swift版の互換性チェックリスト(`docs/command-spec-checklist.md`予定)の元ネタとして、
+Swift版の互換性チェックリスト([command-spec-checklist.md](command-spec-checklist.md))の元ネタとして、
 一覧性・網羅性を優先して抽出したもの。実装アーキテクチャ側の詳細は`docs/ex-mode.md`を参照。
 
 ---

@@ -28,13 +28,25 @@
   保存/復元の2経路、`malloc.c`(静的プール)と`mapmalloc.c`(mmapベース)がlibc mallocを
   置き換える理由とアルゴリズム概要。
 
+## コマンド仕様(ユーザー視点)
+
+- [command-spec-ex.md](command-spec-ex.md) — `ex.1`/`TODO`/`Changes`より抽出した、`:`コマンド
+  約60種・アドレス指定構文・`:set`オプション約35種・起動オプション・正規表現/置換パターン構文・
+  コマンド挙動に影響するChanges上の変更点の一覧。`ex-mode.md`が実装側、こちらが仕様側。
+- [command-spec-vi.md](command-spec-vi.md) — `vi.1`より抽出した、visualモードの全コマンド
+  (モーション・オペレータ・挿入・検索/置換・マーク/レジスタ・繰り返し/アンドゥ・画面制御・
+  モード切替・マクロ等)の一覧。`vi-mode.md`が実装側、こちらが仕様側。
+- [command-spec-checklist.md](command-spec-checklist.md) — 上記2文書を元にしたSwift版の
+  コマンド互換性チェックリスト(ゴールデンテスト計画のドラフト)。仕様上とくに間違えやすい点、
+  Changesベースで「意図的に踏襲する/しない」と判断済みの挙動を個別項目として整理。
+
 ## Swift版再実装の検討
 
 - [swift-vi-research-notes.md](swift-vi-research-notes.md) — 上記の調査内容を踏まえ、
   Swiftによる再実装を検討した際の技術方針まとめ(対象プラットフォーム、文字コード方針、
   正規表現、ローカライズ、パッケージ構成案など)。
 - [swift-vi-implementation-plan.md](swift-vi-implementation-plan.md) — 実装の進捗管理用
-  チェックリスト。フェーズ0(準備)からフェーズ6(検証・仕上げ)まで、`- [ ]`のチェック
+  チェックリスト。フェーズ0(準備)からフェーズ7(検証・仕上げ)まで、`- [ ]`のチェック
   ボックスで進捗を記録する。
 
 ## 調査時の注意点・既知の落とし穴

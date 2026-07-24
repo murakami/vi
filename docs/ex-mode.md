@@ -4,6 +4,9 @@
 `ex_set.c`, `ex_subr.c`, `ex_tagio.c`, `ex_temp.c`, `ex_io.c`, `ex_unix.c`, および
 `ex.h`/`ex_vars.h`/`ex_temp.h`/`ex_argv.h`。
 
+コマンド仕様(ユーザー視点の一覧)は[command-spec-ex.md](command-spec-ex.md)を参照。本文書は
+その仕様を実現する実装アーキテクチャ側の詳細。
+
 ## 1. 起動シーケンスと ex/vi/view/edit の分岐
 
 `main()` (ex.c) がすべての起点。ここでの分岐は「その場で処理して終わり」ではなく、

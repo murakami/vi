@@ -11,10 +11,14 @@
 
 ## フェーズ0: 準備・一次情報の棚卸し
 
-- [ ] `ex.1` / `vi.1` マニュアルページを読み、コマンド仕様一覧を作成する
-- [ ] `TODO` / `Changes` ファイルを読み、既知の未解決事項・過去の変更意図を把握する
-- [ ] コマンド互換性チェックリスト(ゴールデンテストの元ネタ)のドラフトを作成する
-- [ ] `docs/ex-mode.md` / `docs/vi-mode.md` / `docs/regex.md` の内容と、上記コマンド仕様の対応関係を確認する
+- [x] `ex.1` / `vi.1` マニュアルページを読み、コマンド仕様一覧を作成する
+  → [command-spec-ex.md](command-spec-ex.md) / [command-spec-vi.md](command-spec-vi.md)
+- [x] `TODO` / `Changes` ファイルを読み、既知の未解決事項・過去の変更意図を把握する
+  → `command-spec-ex.md`§6・§7
+- [x] コマンド互換性チェックリスト(ゴールデンテストの元ネタ)のドラフトを作成する
+  → [command-spec-checklist.md](command-spec-checklist.md)
+- [x] `docs/ex-mode.md` / `docs/vi-mode.md` / `docs/regex.md` の内容と、上記コマンド仕様の対応関係を確認する
+  → 各文書冒頭に相互参照(仕様側↔実装側)を追記済み
 
 ## フェーズ1: リポジトリディレクトリ構成の整理
 
